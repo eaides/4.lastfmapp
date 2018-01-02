@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
-import { CarouselComponent } from './components/carousel/carousel.component';
+import { CarouselBoostrap4Component } from './components/carousel-boostrap4/carousel-boostrap4.component';
 
 
 @NgModule({
@@ -15,7 +15,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     HomeComponent,
     SearchComponent,
     NavbarComponent,
-    CarouselComponent
+    CarouselBoostrap4Component
   ],
   imports: [
     BrowserModule,
