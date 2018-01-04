@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { app_routing} from './app.routes';
+import { HttpClientModule } from '@angular/common/http';
+
+import { LastfmService } from './services/lastfm.service';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -19,9 +22,12 @@ import { CarouselBoostrap4Component } from './components/carousel-boostrap4/caro
   ],
   imports: [
     BrowserModule,
-    app_routing
+    app_routing,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+      LastfmService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
