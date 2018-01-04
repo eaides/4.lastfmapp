@@ -39,6 +39,13 @@ export class LastfmService {
     });
   }
 
+    /**
+     * @brief return complete url with api_root + api_key + pagination if needed
+     * @param {string} url
+     * @param {number} limit
+     * @param {number} page
+     * @returns {string}
+     */
   private formatUrl(url: string, limit: number, page: number): string {
     let formatedUrl = this.api_root_url + url +  '&api_key=' + this.api_key + '&format=json';
     if (limit > 0) {
