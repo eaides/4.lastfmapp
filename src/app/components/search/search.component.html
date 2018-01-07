@@ -1,3 +1,25 @@
-<p>
-  search works!
-</p>
+<div class="container main-home">
+  <div class="row">
+    <div class="col-md-3">
+      <label for="termino">Buscar Artista</label>
+      <input type="text"
+             placeholder="Busque Artista..."
+             class="form-control"
+             (keyup)="buscarArtista()"
+             [(ngModel)]="termino">
+    </div>
+    <div class="col-md-9">
+      <h1 class="text-capitalize">{{ termino }}</h1>
+      <hr *ngIf="termino.length >= 1">
+
+      <div class="row">
+        <div *ngFor="let artist of _lastfm.artists"
+          class="col-md-3 text-center">
+          <img [src]="artist.image[1]?.text"
+               [alt]="artist.name"
+               class="img-thubnail">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

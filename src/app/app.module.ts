@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { app_routing} from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { LastfmService } from './services/lastfm.service';
 
@@ -23,6 +24,7 @@ import { CarouselBoostrap4Component } from './components/carousel-boostrap4/caro
   imports: [
     BrowserModule,
     app_routing,
+    FormsModule,
     HttpClientModule
   ],
   providers: [
