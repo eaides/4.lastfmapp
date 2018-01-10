@@ -22,8 +22,7 @@ import { NofotoPipe } from './pipes/nofoto.pipe';
     SearchComponent,
     NavbarComponent,
     CarouselBoostrap4Component,
-    ArtistComponent
-    CarouselBoostrap4Component,
+    ArtistComponent,
     NofotoPipe
   ],
   imports: [

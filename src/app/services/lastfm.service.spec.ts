@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { LastfmService } from './lastfm.service';
 
-describe('SpotifyService', () => {
+describe('LastFMService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [LastfmService]

@@ -7,7 +7,7 @@ export class NofotoPipe implements PipeTransform {
 
   transform(images: any[]): any {
     const noImage = 'assets/img/noimage.png';
-    console.log(images);
+    // console.log(images);
     if (!images) {
       return noImage;
     }

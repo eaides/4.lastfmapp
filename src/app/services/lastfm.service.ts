@@ -21,7 +21,7 @@ export class LastfmService {
     this.shared_key = 'f9f5d67007966b13821a09b39c5220bb';
     this.registered_to = 'aides';
     this.api_root_url = 'http://ws.audioscrobbler.com/2.0/';
-    console.log('service lastFM ready');
+    // console.log('service lastFM ready');
   }
 
   getTopArtists(tag: string = 'queen', limit: number = 20, page: number = 1) {
@@ -38,7 +38,14 @@ export class LastfmService {
 
     // without http headers
     return this._http.get(url).map( (resp: any) => {
-      this.artists = resp.topartists.artist;
+      this.artists = [];
+      for (const artist of resp.topartists.artist) {
+        this.artists.push({
+          'url': artist.url.substr(26), //  https://www.last.fm/music/We+Will+Rock+You+Original+London+Cast
+          'name': artist.name,
+          'image': artist.image
+        });
+      }
       return this.artists;
     });
   }
@@ -48,13 +55,25 @@ export class LastfmService {
     const url = this.formatUrl(url_top_albums, limit, page);
 
     return this._http.get(url).map( (resp: any) => {
-      console.log(resp);
+      // console.log(resp);
       this.albums = resp.albums.album;
       return this.albums;
     });
   }
 
-  private formatUrl(url: string, limit: number, page: number): string {
+  getArtist( artistID: string ) {
+    const ampersand = '%26';
+    const space = '+';
+    artistID = artistID.replace(/ /g, space);
+    artistID = artistID.replace(/&/g, ampersand);
+    const url_artist = '?method=artist.getinfo&artist=' + artistID;
+    const url = this.formatUrl(url_artist);
+    return this._http.get(url).map( (resp: any) => {
+        return resp.artist;
+    });
+  }
+
+  private formatUrl(url: string, limit: number = 0, page: number = 0): string {
     let formatedUrl = this.api_root_url + url +  '&api_key=' + this.api_key + '&format=json';
     if (limit > 0) {
         formatedUrl = formatedUrl + '&limit=' + limit;
