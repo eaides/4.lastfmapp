@@ -12,6 +12,7 @@ import { SearchComponent } from './components/search/search.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { CarouselBoostrap4Component } from './components/carousel-boostrap4/carousel-boostrap4.component';
 import { ArtistComponent } from './components/artist/artist.component';
+import { NofotoPipe } from './pipes/nofoto.pipe';
 
 
 @NgModule({
@@ -22,6 +23,8 @@ import { ArtistComponent } from './components/artist/artist.component';
     NavbarComponent,
     CarouselBoostrap4Component,
     ArtistComponent
+    CarouselBoostrap4Component,
+    NofotoPipe
   ],
   imports: [
     BrowserModule,
