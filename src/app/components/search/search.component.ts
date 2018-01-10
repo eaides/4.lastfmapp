@@ -22,8 +22,9 @@ export class SearchComponent implements OnInit {
 
   this._lastfm.getTopArtists( this.termino )
     .subscribe( artists => {
-      // console.log('Information Artists Ready!');
-      // console.log(artists[0].image[1]);
+      console.log('Information Artists Ready!');
+      console.log(artists[0]);
+      console.log(artists[0].image[1]);
     });
   };
 

@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { CarouselBoostrap4Component } from './components/carousel-boostrap4/carousel-boostrap4.component';
+import { ArtistComponent } from './components/artist/artist.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { CarouselBoostrap4Component } from './components/carousel-boostrap4/caro
     HomeComponent,
     SearchComponent,
     NavbarComponent,
-    CarouselBoostrap4Component
+    CarouselBoostrap4Component,
+    ArtistComponent
   ],
   imports: [
     BrowserModule,
