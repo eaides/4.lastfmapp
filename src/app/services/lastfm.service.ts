@@ -61,15 +61,29 @@ export class LastfmService {
     });
   }
 
-  getArtist( artistID: string ) {
+  private fixArtistID( artistID: string): string {
     const ampersand = '%26';
     const space = '+';
     artistID = artistID.replace(/ /g, space);
     artistID = artistID.replace(/&/g, ampersand);
+    return artistID;
+  }
+
+  getArtist( artistID: string ) {
+    artistID = this.fixArtistID(artistID);
     const url_artist = '?method=artist.getinfo&artist=' + artistID;
     const url = this.formatUrl(url_artist);
     return this._http.get(url).map( (resp: any) => {
         return resp.artist;
+    });
+  }
+
+  getTop ( artistID: string) {
+    artistID = this.fixArtistID(artistID);
+    const url_artist = '?method=artist.gettopalbums&artist=' + artistID;
+    const url = this.formatUrl(url_artist);
+    return this._http.get(url).map( (resp: any) => {
+      return resp.topalbums.album;
     });
   }
 

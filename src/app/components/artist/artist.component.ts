@@ -9,6 +9,7 @@ import { LastfmService } from '../../services/lastfm.service';
 export class ArtistComponent implements OnInit {
 
   artist: any = {};
+  top: any[];
 
   constructor( private _activatedRoute: ActivatedRoute,
                private _LastFM: LastfmService ) { }
@@ -17,11 +18,18 @@ export class ArtistComponent implements OnInit {
     this._activatedRoute.params
       .map( params => params['id'])
       .subscribe( id => {
-      this._LastFM.getArtist(id).subscribe(artist => {
-        console.log(artist);
-        this.artist = artist;
+
+        this._LastFM.getArtist(id).subscribe(artist => {
+          console.log(artist);
+          this.artist = artist;
+        });
+
+        this._LastFM.getTop(id).subscribe(top => {
+          console.log(top);
+          this.top = top;
+        });
+
       });
-    });
   }
 
 }

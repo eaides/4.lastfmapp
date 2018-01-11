@@ -12,9 +12,15 @@ export class NofotoPipe implements PipeTransform {
       return noImage;
     }
     if (images.length >= 3) {
-      return images[2]['#text'];
-    } else if (images.length >= 2) {
-      return images[1]['#text'];
+      const imLn2: number = images[2]['#text'].length;
+      if (imLn2 > 5) {
+        return images[2]['#text'];
+      }
+    if (images.length >= 2) {
+      const imLn1: number = images[1]['#text'].length;
+      if (imLn1 > 5) {
+        return images[1]['#text'];
+      }
     }
     return noImage;
   }

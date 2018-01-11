@@ -1,4 +1,31 @@
-<p>
-  artist works!
-  {{ artist.name }}
-</p>
+<div class="container main-home">
+  <div class="row">
+    <div class="col-md-3">
+      <img [src]="artist.image | nofoto"
+           [alt]="artist.name"
+           class="img-thumbnail">
+    </div>
+    <div class="col-md-9 text-center">
+      <h1>{{ artist.name}} </h1>
+      <br>
+      <a href="{{ artist.url }}" class="btn btn-block btn-outline-info" target="_blank">
+        Open in LastFM
+      </a>
+    </div>
+  </div>
+  <br>
+  <h2>Top tracks</h2>
+  <hr>
+  <div class="row"
+       *ngFor="let top1 of top"
+  >
+    <div class="col-md-3">
+      <img [src]="top1.image | nofoto"
+           [alt]="top1.name"
+           class="img-thumbnail">
+    </div>
+    <div class="col-md-9">
+      {{ top1.name }}
+    </div>
+  </div>
+</div>
