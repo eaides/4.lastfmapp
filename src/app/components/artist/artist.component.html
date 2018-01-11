@@ -1,31 +1,60 @@
-<div class="container main-home">
+<div class="container main-container">
   <div class="row">
     <div class="col-md-3">
       <img [src]="artist.image | nofoto"
            [alt]="artist.name"
-           class="img-thumbnail">
+           class="img-thumbnail img-circle">
     </div>
     <div class="col-md-9 text-center">
       <h1>{{ artist.name}} </h1>
       <br>
-      <a href="{{ artist.url }}" class="btn btn-block btn-outline-info" target="_blank">
+      <a href="{{ artist.url }}" class="btn btn-outline-primary" target="_blank">
         Open in LastFM
       </a>
+      <button [routerLink]="['/search']" class="btn btn-outline-danger">Back to Search</button>
     </div>
   </div>
   <br>
   <h2>Top tracks</h2>
   <hr>
-  <div class="row"
-       *ngFor="let top1 of top"
-  >
-    <div class="col-md-3">
-      <img [src]="top1.image | nofoto"
-           [alt]="top1.name"
-           class="img-thumbnail">
-    </div>
-    <div class="col-md-9">
-      {{ top1.name }}
-    </div>
-  </div>
+  <!--<div class="row"-->
+       <!--*ngFor="let top1 of top"-->
+  <!--&gt;-->
+    <!--<div class="col-md-3">-->
+      <!--<img [src]="top1.image | nofoto"-->
+           <!--[alt]="top1.name"-->
+           <!--class="img-thumbnail">-->
+    <!--</div>-->
+    <!--<div class="col-md-9">-->
+      <!--{{ top1.name }}-->
+    <!--</div>-->
+    <div class="row">
+    <table class="table table-dark">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Photo</th>
+        <th>Name</th>
+        <th>Popular</th>
+        <th>Open in LastFM</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let top1 of top; let i = index">
+        <td>{{ i + 1}}</td>
+        <td><img [src]="top1.image | nofoto"
+          [alt]="top1.name"
+          class="img-thumbnail img-small"
+        ></td>
+       <td>{{ top1.name }}</td>
+       <td>{{ top1.playcount }}</td>
+        <td>
+          <a href="{{ top1.url }}" class="btn btn-outline-primary" target="_blank">
+            {{ top1.name }}
+          </a>
+        </td>
+     </tr>
+     </tbody>
+   </table>
+ </div>
 </div>

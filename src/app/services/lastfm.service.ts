@@ -78,10 +78,10 @@ export class LastfmService {
     });
   }
 
-  getTop ( artistID: string) {
+  getTop ( artistID: string, limit: number = 20, page: number = 1) {
     artistID = this.fixArtistID(artistID);
     const url_artist = '?method=artist.gettopalbums&artist=' + artistID;
-    const url = this.formatUrl(url_artist);
+    const url = this.formatUrl(url_artist, limit, page);
     return this._http.get(url).map( (resp: any) => {
       return resp.topalbums.album;
     });

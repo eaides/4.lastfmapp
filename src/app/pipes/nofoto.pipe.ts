@@ -16,6 +16,7 @@ export class NofotoPipe implements PipeTransform {
       if (imLn2 > 5) {
         return images[2]['#text'];
       }
+    }
     if (images.length >= 2) {
       const imLn1: number = images[1]['#text'].length;
       if (imLn1 > 5) {
@@ -24,5 +25,4 @@ export class NofotoPipe implements PipeTransform {
     }
     return noImage;
   }
-
 }
