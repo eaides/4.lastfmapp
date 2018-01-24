@@ -1,5 +1,8 @@
 <div id="carouselWithIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
+    <!-- If need to use any repetitive data inside the same element that has the *ngFor-->
+    <!-- Must add the prefix "attr." to the attribute, if nor you will receive an error -->
+    <!-- can bind to xxxxx because isn't a known property of 'yyy' -->
     <li data-target="#carouselWithIndicators"
         *ngFor="let slide of slides; let i = index"
         attr.data-slide-to="{{ i }}"
